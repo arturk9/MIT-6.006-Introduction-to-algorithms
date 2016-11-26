@@ -1,15 +1,22 @@
 package BinarySearchTree;
 
+import java.util.ArrayList;
+
 public class BST {
     /* A binary search tree. */
     BSTNode root;
+    ArrayList<BSTNode> nodes = new ArrayList<>();
 
     @Override
     public String toString(){
         if(this.root == null)
             return "<empty tree>";
-        else
-            return root.toString();
+        else if (this.root != null){
+            for(BSTNode node : nodes)
+                return node.toString();
+        }
+
+            return null;
     }
 
     public BST(){
@@ -39,7 +46,45 @@ public class BST {
         else
             root.insert(node);
 
+        nodes.add(node);
+
         return node;
+    }
+
+    public BSTNode delete(int key){
+        /* Deletes and returns a node with key k, if it exists, from the BST.
+         * @param the key of the node that we want to delete
+         * @return the deleted node that we want to delete
+         * */
+         BSTNode node = this.find(key);
+
+        if(node == null)
+            return null;
+
+        if(node == root) {
+            BSTNode pseudoroot = new BSTNode(null, 0);
+            pseudoroot.left = this.root;
+            this.root.parent = this.root;
+            BSTNode deleted = this.root.delete();
+            root = pseudoroot.left;
+            if (root != null)
+                root.parent = null;
+            return deleted;
+        }
+
+        else
+            return node.delete();
+    }
+
+    public BSTNode next_larger(int key){
+        /* Returns the node that contains the next larger (the successor) key in the BST
+         * in relation to the node with key k.
+         * @param the key of the node of which the successor is to be found
+         * @return the successor node.
+         * */
+
+        BSTNode node = find(key);
+        return node.next_larger();
     }
 }
 

@@ -25,10 +25,10 @@ public class BSTNode{
             return false;
     }
 
-    @Override
-    public String toString(){
-        return "Key: " + key + "\n Parent: " + parent + "\n Left and right: " + left + " " + right;
-    }
+    //@Override
+    //public String toString(){
+    //    return "Key: " + key + "\n Parent: " + parent + "\n Left and right: " + left + " " + right;
+    //    }
 
     public BSTNode(BSTNode parent, int key){
         /* Creates a node
