@@ -3,8 +3,8 @@ package BinarySearchTree;
 import java.util.Comparator;
 
 public class BSTNode{
-
     /* A node in vanilla Binary Search Tree */
+
     int key;
     BSTNode parent;
     BSTNode left;
@@ -15,6 +15,11 @@ public class BSTNode{
             return true;
         else
             return false;
+    }
+
+    @Override
+    public String toString(){
+        return "Key: " + key + "\n Parent: " + parent + "\n Left and right: " + left + " " + right;
     }
 
     public BSTNode(BSTNode parent, int key){
