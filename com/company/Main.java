@@ -8,8 +8,5 @@ public class Main {
 	// write your code here
 
         BST hehe = new BST();
-
-        hehe.equals
-
     }
 }

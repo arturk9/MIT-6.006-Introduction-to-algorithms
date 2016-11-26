@@ -10,9 +10,17 @@ public class BSTNode{
     BSTNode left;
     BSTNode right;
 
-    public boolean equals(BSTNode node){
-        if((this.key == node.key) && (this.parent == node.parent) && (this.left == node.left) && (this.right == node.right))
-            return true;
+    @Override
+    public boolean equals(Object o){
+        if(o instanceof BSTNode){
+
+            BSTNode node = (BSTNode) o;
+
+            if((this.key == node.key) && (this.parent == node.parent) && (this.left == node.left) && (this.right == node.right))
+                 return true;
+            else
+                return false;
+        }
         else
             return false;
     }

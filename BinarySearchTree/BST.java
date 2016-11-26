@@ -28,6 +28,18 @@ public class BST {
         return root.find_min();
     }
 
-    public insert;
+    public BSTNode insert(int key){
+        /* Inserts a node with key k into the subtree rooted at this node.
+         * @param the key of the node to be inserted
+         * @return the node inserted */
+        BSTNode node = new BSTNode(null, key);
+        if(root == null){
+            root = node;
+        }
+        else
+            root.insert(node);
+
+        return node;
+    }
 }
 
