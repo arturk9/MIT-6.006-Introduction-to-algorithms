@@ -1,22 +1,12 @@
 package BinarySearchTree;
 
-import java.util.ArrayList;
-
 public class BST {
     /* A binary search tree. */
-    BSTNode root;
-    ArrayList<BSTNode> nodes = new ArrayList<>();
+    public BSTNode root;
 
     @Override
     public String toString(){
-        if(this.root == null)
-            return "<empty tree>";
-        else if (this.root != null){
-            for(BSTNode node : nodes)
-                return node.toString();
-        }
-
-            return null;
+        return root.key + "";
     }
 
     public BST(){
@@ -40,13 +30,12 @@ public class BST {
          * @param the key of the node to be inserted
          * @return the node inserted */
         BSTNode node = new BSTNode(null, key);
+
         if(root == null){
             root = node;
         }
         else
             root.insert(node);
-
-        nodes.add(node);
 
         return node;
     }

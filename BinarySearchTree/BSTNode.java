@@ -5,10 +5,19 @@ import java.util.Comparator;
 public class BSTNode{
     /* A node in vanilla Binary Search Tree */
 
-    int key;
-    BSTNode parent;
-    BSTNode left;
-    BSTNode right;
+    public int key;
+    public BSTNode parent;
+    public BSTNode left;
+    public BSTNode right;
+
+    public BSTNode(BSTNode parent, int key){
+        /* Creates a node
+         * @param parent node
+         * @param key */
+
+        this.parent = parent;
+        this.key = key;
+    }
 
     @Override
     public boolean equals(Object o){
@@ -25,19 +34,10 @@ public class BSTNode{
             return false;
     }
 
-    //@Override
-    //public String toString(){
-    //    return "Key: " + key + "\n Parent: " + parent + "\n Left and right: " + left + " " + right;
-    //    }
-
-    public BSTNode(BSTNode parent, int key){
-        /* Creates a node
-         * @param parent node
-         * @param key */
-
-        this.parent = parent;
-        this.key = key;
-    }
+    @Override
+    public String toString(){
+        return this.key + " ";
+        }
 
     public BSTNode find(int key){
         /* Finds and returns the node with key from the subtree rooted at this node.
@@ -70,6 +70,7 @@ public class BSTNode{
         while(current.left != null){
             current = current.left;
         }
+        System.out.println();
         return current;
     }
 
@@ -79,7 +80,7 @@ public class BSTNode{
         BSTNode current = this;
 
         if(this.right != null)
-            return this.right.find_min();
+            //return this.right.find_min();
 
         while((current.parent != null) & (current.equals(current.parent.right))){
             current = current.parent;
@@ -98,20 +99,23 @@ public class BSTNode{
             if(this.left == null){
                 node.parent = this;
                 this.left = node;
+
             }
 
-            else
+            else{
                 this.left.insert(node);
+            }
         }
 
         else{
             if(this.right == null){
                 node.parent = this;
-                this.right = node;
+                this.left = node;
             }
 
-            else
+            else {
                 this.right.insert(node);
+            }
         }
     }
 
