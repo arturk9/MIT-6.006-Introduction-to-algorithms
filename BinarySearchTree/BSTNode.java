@@ -47,6 +47,8 @@ public class BSTNode{
         this.key = key;
     }
 
+    public BSTNode(){};
+
     @Override
     public boolean equals(Object o){
         if(o instanceof BSTNode){
