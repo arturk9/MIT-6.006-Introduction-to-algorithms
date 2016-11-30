@@ -5,10 +5,38 @@ import java.util.Comparator;
 public class BSTNode{
     /* A node in vanilla Binary Search Tree */
 
-    public int key;
-    public BSTNode parent;
-    public BSTNode left;
-    public BSTNode right;
+    private int key;
+    private BSTNode parent;
+    private BSTNode left;
+    private BSTNode right;
+
+    public void setParent(BSTNode parent){
+        this.parent = parent;
+    }
+
+    public void setLeft(BSTNode left){
+        this.left = left;
+    }
+
+    public void setRight(BSTNode right){
+        this.right = right;
+    }
+
+    public BSTNode getParent(){
+        return this.parent;
+    }
+
+    public BSTNode getLeft(){
+        return this.left;
+    }
+
+    public BSTNode getRight(){
+        return this.right;
+    }
+
+    public int getKey(){
+        return this.key;
+    }
 
     public BSTNode(BSTNode parent, int key){
         /* Creates a node
@@ -97,8 +125,7 @@ public class BSTNode{
 
         if(node.key < this.key){
             if(this.left == null){
-                node.parent = this;
-                this.left = node;
+                this.left = new BSTNode(this, node.key);
 
             }
 
@@ -109,8 +136,7 @@ public class BSTNode{
 
         else{
             if(this.right == null){
-                node.parent = this;
-                this.left = node;
+                this.right = new BSTNode(this, node.key);
             }
 
             else {

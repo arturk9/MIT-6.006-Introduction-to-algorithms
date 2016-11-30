@@ -20,9 +20,7 @@ public class Main {
 
         kebab.find(0);
 
-        System.out.println(kebab.find(7));
-
-
+        System.out.println(kebab.find(16));
 
     }
 }

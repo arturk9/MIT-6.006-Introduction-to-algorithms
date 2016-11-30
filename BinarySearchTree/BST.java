@@ -2,11 +2,11 @@ package BinarySearchTree;
 
 public class BST {
     /* A binary search tree. */
-    public BSTNode root;
+    private BSTNode root;
 
     @Override
     public String toString(){
-        return root.key + "";
+        return root.getKey() + "";
     }
 
     public BST(){
@@ -52,12 +52,12 @@ public class BST {
 
         if(node == root) {
             BSTNode pseudoroot = new BSTNode(null, 0);
-            pseudoroot.left = this.root;
-            this.root.parent = this.root;
+            pseudoroot.setLeft(this.root);
+            this.root.setParent(this.root);
             BSTNode deleted = this.root.delete();
-            root = pseudoroot.left;
+            root = pseudoroot.getLeft();
             if (root != null)
-                root.parent = null;
+                root.setParent(null);
             return deleted;
         }
 
@@ -76,4 +76,5 @@ public class BST {
         return node.next_larger();
     }
 }
+
 
