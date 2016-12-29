@@ -3,7 +3,7 @@ package MergeSort;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MergeSort {
+public final class MergeSort {
 
     private MergeSort(){}
 
@@ -52,6 +52,12 @@ public class MergeSort {
             }
         }
 
-        //return answer
+        int[] answerArray = new int[answer.size()];
+
+        for(int p = 0; p < answer.size(); p++){
+            answerArray[p] = answer.get(p);
+        }
+
+        return answerArray;
     }
 }
