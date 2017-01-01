@@ -1,3 +1,8 @@
+/*  DOES NOT WORK IN PLACE;
+    IN ORDER TO USE SORTED ARRAY, YOU NEED TO ASSIGN IT TO ANOTHER VARIABLE
+    int[] myArraySorted =  MergeSort.sort(myarray);
+ */
+
 package MergeSort;
 
 import java.util.ArrayList;
