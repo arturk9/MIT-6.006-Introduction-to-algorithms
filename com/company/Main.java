@@ -61,29 +61,52 @@ public class Main {
 
         InsertionSort.sortDescending(myarray);
 
-        int[] testArrayDivideAndConquer = new int[16];
+        /* Test finding max sub array - case 1 */
 
-        testArrayDivideAndConquer[0] = -13;
-        testArrayDivideAndConquer[1] = 3;
-        testArrayDivideAndConquer[2] = -25;
-        testArrayDivideAndConquer[3] = 20;
-        testArrayDivideAndConquer[4] = -3;
-        testArrayDivideAndConquer[5] = -16;
-        testArrayDivideAndConquer[6] = -23;
-        testArrayDivideAndConquer[7] = 18;
-        testArrayDivideAndConquer[8] = 20;
-        testArrayDivideAndConquer[9] = -7;
-        testArrayDivideAndConquer[10] = 12;
-        testArrayDivideAndConquer[11] = -5;
-        testArrayDivideAndConquer[12] = -22;
-        testArrayDivideAndConquer[13] = 15;
-        testArrayDivideAndConquer[14] = -4;
-        testArrayDivideAndConquer[15] = 7;
+        int[] testMaxSubarrayCase1 = new int[16];
 
-        int[] result = MaximumSubarray.findMaxSubarray(testArrayDivideAndConquer, 0, 15);
+        testMaxSubarrayCase1[0] = 13;
+        testMaxSubarrayCase1[1] = -3;
+        testMaxSubarrayCase1[2] = -25;
+        testMaxSubarrayCase1[3] = 20;
+        testMaxSubarrayCase1[4] = -3;
+        testMaxSubarrayCase1[5] = -16;
+        testMaxSubarrayCase1[6] = -23;
+        testMaxSubarrayCase1[7] = 18;
+        testMaxSubarrayCase1[8] = 20;
+        testMaxSubarrayCase1[9] = -7;
+        testMaxSubarrayCase1[10] = 12;
+        testMaxSubarrayCase1[11] = -5;
+        testMaxSubarrayCase1[12] = -22;
+        testMaxSubarrayCase1[13] = 15;
+        testMaxSubarrayCase1[14] = -4;
+        testMaxSubarrayCase1[15] = 7;
 
-        for(int i : result){
-            System.out.println(result);
-        }
+        int[] maxSubarrayCase1Result = MaximumSubarray.find(testMaxSubarrayCase1);
+
+        assert maxSubarrayCase1Result[0] == 7;
+        assert maxSubarrayCase1Result[1] == 10;
+        assert maxSubarrayCase1Result[2] == 43;
+
+        /* Test finding max sub array - case 2 */
+
+        int[] testMaxSubarrayCase2 = new int[9];
+        testMaxSubarrayCase2[0] = -2;
+        testMaxSubarrayCase2[1] = 1;
+        testMaxSubarrayCase2[2] = -3;
+        testMaxSubarrayCase2[3] = 4;
+        testMaxSubarrayCase2[4] = -1;
+        testMaxSubarrayCase2[5] = 2;
+        testMaxSubarrayCase2[6] = 1;
+        testMaxSubarrayCase2[7] = -5;
+        testMaxSubarrayCase2[8] = 4;
+
+        int[] maxSubarrayCase2Result = MaximumSubarray.find(testMaxSubarrayCase2);
+
+        assert maxSubarrayCase2Result[0] == 3;
+        assert maxSubarrayCase2Result[1] == 6;
+        assert maxSubarrayCase2Result[2] == 6;
+
+
     }
 }

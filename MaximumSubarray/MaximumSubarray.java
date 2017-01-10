@@ -1,11 +1,33 @@
 package MaximumSubarray;
 
-
 import java.util.Arrays;
 
 public class MaximumSubarray {
 
-    public static int[] findMaxCrossingSubarray(int[] A, int low, int mid, int high){
+    private MaximumSubarray(){};
+
+    /* finds maximum subarray, divide and conquer algorithm
+     * @param initial array
+     * @return an array where:
+     * [0] is left (low) item index;
+     * [1] is right(high) item index;
+     * [2] is sum of items in subarray between indexes left and right (low and high)
+     */
+    public static int[] find(int[] A){
+        int[] tempResult = findMaxSubarray(A, 0, A.length-1);
+        int[] result = new int[3];
+
+        result[0] = tempResult[0];
+        result[1] = tempResult[1];
+
+        for(int i : Arrays.copyOfRange(A, result[0], result[1]+1)){
+            result[2] += i;
+        }
+
+        return result;
+    }
+
+    private static int[] findMaxCrossingSubarray(int[] A, int low, int mid, int high){
         int leftSum = 0;
         int rightSum = 0;
         int sum = 0;
@@ -40,11 +62,8 @@ public class MaximumSubarray {
     }
 
 
-    public static int[] findMaxSubarray(int[] A, int low, int high){
+    private static int[] findMaxSubarray(int[] A, int low, int high){
         int mid;
-        int sumLeft = 0;
-        int sumRight = 0;
-        int sumCross = 0;
         int[] left;
         int[] right;
         int[] cross;
@@ -65,10 +84,6 @@ public class MaximumSubarray {
             if((left[2] > right[2]) && (left[2] > cross[2])){
                 result[0] = left[0];
                 result[1] = left[1];
-                int[] leftSub = Arrays.copyOfRange(A, low, high);
-                for(int i : leftSub)
-                    sumLeft+=i;
-                result[2] = sumLeft;
 
                 return result;
             }
@@ -76,10 +91,6 @@ public class MaximumSubarray {
             else if ((right[2] >= left[2]) && (right[2] >= cross[2])){
                 result[0] = right[0];
                 result[1] = right[1];
-                int[] rightSub = Arrays.copyOfRange(A, low, high);
-                for(int i : rightSub)
-                    sumRight+=i;
-                result[2] = sumRight;
 
                 return result;
             }
@@ -87,14 +98,9 @@ public class MaximumSubarray {
             else{
                 result[0] = cross[0];
                 result[1] = cross[1];
-                int[] crossSub = Arrays.copyOfRange(A, low, high);
-                for(int i : crossSub)
-                    sumCross+=i;
-                result[2] = sumCross;
 
                 return result;
             }
         }
     }
-
 }
