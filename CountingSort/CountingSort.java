@@ -17,7 +17,7 @@ public class CountingSort {
             C[i] = C[i] + C[i-1];
         }
 
-        for(int i = 1; i < maxIntegerInArray+1; i++){
+        for(int i = 0; i < maxIntegerInArray+1; i++){
             C[i] = C[i] - 1;
         }
 
